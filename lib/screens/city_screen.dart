@@ -34,6 +34,9 @@ class _CityScreenState extends State<CityScreen> {
       print(_model!.weather.areaName);
       if (_model != null) {
         cityName = _model!.weather.areaName!;
+        if (_model!.weather.temperature!.celsius! > 24.99) {
+          _showSnackBar();
+        }
       }
       setState(() {});
     });
@@ -44,6 +47,21 @@ class _CityScreenState extends State<CityScreen> {
     });
 
     super.initState();
+  }
+
+  _showSnackBar() {
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          content: Text('No olvides tu bloqueador!'),
+          action: SnackBarAction(
+              label: "De acuerdo",
+              onPressed: () {
+                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              }),
+        ),
+      );
   }
 
   String cityName = "Tu ubicación";
@@ -166,7 +184,7 @@ class _CityScreenState extends State<CityScreen> {
                 children: [
                   Container(
                     child: Image.asset(
-                      'assets/weathers/rain-cloud-sun@2x.png',
+                      _conditionString(_model!.weather.weatherIcon!),
                       height: 120,
                     ),
                   ),
@@ -295,6 +313,56 @@ class _CityScreenState extends State<CityScreen> {
         ),
       ],
     );
+  }
+
+  _conditionString(String iconCode) {
+    String iconAddress = "sunny";
+    print(iconCode);
+    switch (iconCode) {
+      case "11d":
+        iconAddress = "thunderstorm";
+        break;
+      case "09d":
+        iconAddress = "rainy";
+        break;
+      case "10d":
+        iconAddress = "rainy-day";
+        break;
+      case "13d":
+        iconAddress = "snowyx";
+        break;
+      case "50d":
+        iconAddress = "windy";
+        break;
+      case "01d":
+        iconAddress = "sunny";
+        break;
+      case "01n":
+        iconAddress = "night";
+        break;
+      case "02d":
+        iconAddress = "cloudy-day";
+        break;
+      case "02n":
+        iconAddress = "cloudy_night";
+        break;
+      case "03d":
+        iconAddress = "cloudy-day";
+        break;
+      case "03n":
+        iconAddress = "cloudy_night";
+        break;
+      case "04d":
+        iconAddress = "cloudy";
+        break;
+      case "04n":
+        iconAddress = "cloudy";
+        break;
+      default:
+        iconAddress = "sunny";
+    }
+
+    return 'assets/weathers/$iconAddress.png';
   }
 
   Column _detailsCoumn() {
@@ -748,7 +816,7 @@ class NextDayListTile extends StatelessWidget {
             height: 30,
             width: 30,
             child: SvgPicture.asset(
-              'assets/icons/nuvemcomsol.svg',
+              _conditionString(weather.weatherIcon!),
               color: Color(0xff83839D),
             ),
           ),
@@ -762,6 +830,56 @@ class NextDayListTile extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  _conditionString(String iconCode) {
+    String iconAddress = "sunny";
+    print(iconCode);
+    switch (iconCode) {
+      case "11d":
+        iconAddress = "thunderstorm";
+        break;
+      case "09d":
+        iconAddress = "rainy";
+        break;
+      case "10d":
+        iconAddress = "rainy-day";
+        break;
+      case "13d":
+        iconAddress = "snowyx";
+        break;
+      case "50d":
+        iconAddress = "windy";
+        break;
+      case "01d":
+        iconAddress = "sunny";
+        break;
+      case "01n":
+        iconAddress = "night";
+        break;
+      case "02d":
+        iconAddress = "cloudy-day";
+        break;
+      case "02n":
+        iconAddress = "cloudy_night";
+        break;
+      case "03d":
+        iconAddress = "cloudy-day";
+        break;
+      case "03n":
+        iconAddress = "cloudy_night";
+        break;
+      case "04d":
+        iconAddress = "cloudy";
+        break;
+      case "04n":
+        iconAddress = "cloudy";
+        break;
+      default:
+        iconAddress = "sunny";
+    }
+
+    return 'assets/icons/$iconAddress.svg';
   }
 
   String _formattedDate(date) {
