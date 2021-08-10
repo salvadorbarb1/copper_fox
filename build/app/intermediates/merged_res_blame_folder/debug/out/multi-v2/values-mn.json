@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/salvador/Documentos/Proyectos/copper_fox/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-mn/values-mn.xml",
+            "outputFile": "/home/salvador/Documentos/Proyectos/copper_fox/copper_fox/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-mn/values-mn.xml",
             "map": [
                 {
                     "source": "/home/salvador/.gradle/caches/transforms-2/files-2.1/3eec49c3998de39106d1a4b45b649dbb/core-1.3.2/res/values-mn/values-mn.xml",

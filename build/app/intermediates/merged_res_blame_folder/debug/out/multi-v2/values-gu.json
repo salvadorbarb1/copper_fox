@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/salvador/Documentos/Proyectos/copper_fox/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-gu/values-gu.xml",
+            "outputFile": "/home/salvador/Documentos/Proyectos/copper_fox/copper_fox/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-gu/values-gu.xml",
             "map": [
                 {
                     "source": "/home/salvador/.gradle/caches/transforms-2/files-2.1/a29bab91166da6d77782d111b660aa4a/jetified-play-services-base-16.0.1/res/values-gu/values.xml",
